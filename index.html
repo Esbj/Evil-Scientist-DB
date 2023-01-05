@@ -10,8 +10,36 @@
   </head>
   <body>
     <main>
-      <section><form><input type="text" placeholder="Name"></form></section>
-      <section></section>
+      <section id="add-scientist">
+        <form>
+          <label for="name"></label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Dr. Heinz Doofenshmirtz"
+          />
+          <label for="henchmen">Number of henchmen</label>
+          <input type="number" name="henchmen" id="henchmen" placeholder="3" />
+          <label for="age">Age</label>
+          <input type="text" name="age" id="age" placeholder="47" />
+          <label for="desc">Description</label>
+          <textarea
+            name="desc"
+            id="desc"
+            cols="30"
+            rows="10"
+            placeholder="Dr. Doofenshmirtz is a scientist with main focus on mechanics that has a high output of machines, mainly ray guns with evil intent."
+          ></textarea>
+          <input type="submit" value="Add" />
+        </form>
+      </section>
+      <section id=list-scientists>
+        <div class="scientist">
+          <p>Mojo Jojo</p>
+          <img src="images/mojo.jpg" alt="Mojo jojo">
+        </div>
+      </section>
       <section></section>
     </main>
   </body>
