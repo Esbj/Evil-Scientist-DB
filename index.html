@@ -20,7 +20,7 @@
             placeholder="Dr. Heinz Doofenshmirtz"
           />
           <label for="henchmen">Number of henchmen</label>
-          <input type="number" name="henchmen" id="henchmen" placeholder="3" />
+          <input type="number" name="henchmen" id="henchmen" placeholder="0" />
           <label for="age">Age</label>
           <input type="text" name="age" id="age" placeholder="47" />
           <label for="desc">Description</label>
@@ -35,12 +35,16 @@
         </form>
       </section>
       <section id=list-scientists>
-        <div class="scientist">
+        <div class="scientist active">
           <p>Mojo Jojo</p>
           <img src="images/mojo.jpg" alt="Mojo jojo">
         </div>
       </section>
-      <section></section>
+      <section id="selected-scientist">
+        <p>
+          Name: <span>Mojo jojo</span>
+        </p>
+      </section>
     </main>
   </body>
 </html>

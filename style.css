@@ -1,6 +1,10 @@
 main{
   display: flex;
 }
+section{
+  width: 20%;
+  margin: 0px 20px;
+}
 form{
   display: flex;
   flex-direction: column;
@@ -10,8 +14,18 @@ form input{
 }
 .scientist{
   display: flex;
+  padding: 15px;
+  background-color: rgb(80, 80, 210);
+  border-radius: 15px;
+  gap: 30%;
+}
+.active{
+  border: 5px solid black
 }
 .scientist img{
   max-width: 100px;
   max-height: 100px;
+}
+section{
+  /* display: inline; */
 }
