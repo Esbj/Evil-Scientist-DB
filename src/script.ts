@@ -44,4 +44,9 @@ const drakken = new Scientist("Dr. Drakken", 45, 1, "images/Dr.Drakken.png");
 db.addScientist(drakken);
 db.addScientist(doofenshmirtz);
 
-console.log(db.getScientists())
+document.querySelector("input[submit]")?.addEventListener("submit", (event) => event.preventDefault() viewEditor.addScientist())
+class viewEditor {
+  addScientist():void{
+    let inputs = document.querySelectorAll("input[text], input[textarea]");
+  }
+}
