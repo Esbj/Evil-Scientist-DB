@@ -12,11 +12,11 @@ class Scientist {
     image: string,
     desc?: string
   ) {
-    name = this.name;
-    age = this.age;
-    numberOfHenchmen = this.numberOfHenchmen;
-    image = this.image;
-    desc = this.desc;
+    this.name = name
+    this.age = age
+    this.numberOfHenchmen = numberOfHenchmen;
+    this.image = image;
+    this.desc = desc;
   }
 }
 class ESDB extends Scientist {
@@ -30,6 +30,7 @@ class ESDB extends Scientist {
 }
 
 let db = new ESDB("Dr Anna Ripley", 35, 4, "images/Anna_Ripley.png");
+
 const doofenshmirtz = new Scientist(
   "Dr. Heinz Doofenshmirtz",
   48,
@@ -37,8 +38,10 @@ const doofenshmirtz = new Scientist(
   "images/Doofenshmirtz.png",
   "Dr. Doofenshmirtz is a scientist whos main focus on mechanics that has a high output of machines, mainly ray guns with evil intent."
 );
+
 const drakken = new Scientist("Dr. Drakken", 45, 1, "images/Dr.Drakken.png");
+
 db.addScientist(drakken);
 db.addScientist(doofenshmirtz);
 
-console.log(db.getScientists);
+console.log(db.getScientists())
