@@ -35,7 +35,7 @@ const doofenshmirtz = new Scientist(
   48,
   0,
   "images/Doofenshmirtz.png",
-  "Dr. Doofenshmirtz is a scientist with main focus on mechanics that has a high output of machines, mainly ray guns with evil intent."
+  "Dr. Doofenshmirtz is a scientist whos main focus on mechanics that has a high output of machines, mainly ray guns with evil intent."
 );
 const drakken = new Scientist("Dr. Drakken", 45, 1, "images/Dr.Drakken.png");
 db.addScientist(drakken);
