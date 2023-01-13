@@ -52,6 +52,12 @@ let viewEditor = {
     const formAge = document.querySelector("input#age") as HTMLInputElement
     const formHenchmen = document.querySelector("input#henchmen") as HTMLInputElement
     const formDesc = document.querySelector("input#desc") as HTMLInputElement
+
+    const newScientist = new Scientist(formName.value, Number(formAge.value), Number(formHenchmen.value), undefined, formDesc.value)
+
+    db.addScientist(newScientist);
+    console.log(db.getScientists())
+
   }
 };
 
