@@ -1,5 +1,5 @@
 class Scientist {
-  protected name: string;
+  protected _name: string;
   protected age: number;
   protected numberOfHenchmen: number;
   protected image?: string;
@@ -12,11 +12,15 @@ class Scientist {
     image?: string,
     desc?: string
   ) {
-    this.name = name;
+    this._name = name;
     this.age = age;
     this.numberOfHenchmen = numberOfHenchmen;
     this.image = image;
     this.desc = desc;
+  }
+
+  public get name() {
+    return this._name;
   }
 }
 class ESDB extends Scientist {
@@ -26,6 +30,9 @@ class ESDB extends Scientist {
   }
   getScientists(): Scientist[] {
     return this.scientists;
+  }
+  getScientist(name: string): Scientist | undefined {
+    return this.scientists.find((scientist) => scientist.name === name);
   }
 }
 
@@ -45,25 +52,60 @@ db.addScientist(doofenshmirtz);
 
 let viewEditor = {
   listScientist(): void {
-    // let scientistHolder = document.querySelector("#list-scientists");
+    let scientistHolder = document.querySelector(
+      "#list-scientists"
+    ) as HTMLElement;
+    const scientists: Scientist[] = db.getScientists();
+    for (const scientist of scientists) {
+      let scientistButton = document.createElement("button");
+      scientistButton.innerText = scientist.name;
+      scientistButton.classList.add("scientist-button");
+      scientistButton.addEventListener("click", () =>
+        this.drawScientist(scientist.name)
+      );
+      scientistHolder.append(scientistButton);
+    }
   },
   addScientist(): void {
-    const formName = document.querySelector("input#name") as HTMLInputElement
-    const formAge = document.querySelector("input#age") as HTMLInputElement
-    const formHenchmen = document.querySelector("input#henchmen") as HTMLInputElement
-    const formDesc = document.querySelector("input#desc") as HTMLInputElement
+    const formName = document.querySelector("input#name") as HTMLInputElement;
+    const formAge = document.querySelector("input#age") as HTMLInputElement;
+    const formHenchmen = document.querySelector(
+      "input#henchmen"
+    ) as HTMLInputElement;
+    const formDesc = document.querySelector("input#desc") as HTMLInputElement;
 
-    const newScientist = new Scientist(formName.value, Number(formAge.value), Number(formHenchmen.value), undefined, formDesc.value)
+    const newScientist = new Scientist(
+      formName.value,
+      Number(formAge.value),
+      Number(formHenchmen.value),
+      undefined,
+      formDesc.value
+    );
 
     db.addScientist(newScientist);
-    console.log(db.getScientists())
-
+    console.log(db.getScientists());
+  },
+  drawScientist(name: string): void {
+    const scientistHolder = document.querySelector(
+      "#selected-scientist"
+    ) as HTMLElement;
+    scientistHolder
+      ? (scientistHolder.innerHTML = "")
+      : console.log("Error no scientist holder!");
+    const newScientist: Scientist | undefined = db.getScientist(name);
+    if (newScientist && scientistHolder) {
+      for (const row in newScientist) {
+        const element = document.createElement("p");
+        element.innerText = newScientist[row];
+        scientistHolder.append(element);
+      }
+    }
   }
 };
-
+viewEditor.listScientist();
 const addButton = document.querySelector("button");
 addButton?.addEventListener("click", (event) => {
   event.preventDefault();
   console.log("click");
-  viewEditor.addScientist()
+  viewEditor.addScientist();
 });
