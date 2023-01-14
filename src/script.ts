@@ -94,7 +94,8 @@ let viewEditor = {
       : console.log("Error no scientist holder!");
     const newScientist: Scientist | undefined = db.getScientist(name);
     if (newScientist && scientistHolder) {
-      for (const row in newScientist) {
+      let row: keyof typeof newScientist;
+      for (row in newScientist) {
         const element = document.createElement("p");
         element.innerText = newScientist[row];
         scientistHolder.append(element);
